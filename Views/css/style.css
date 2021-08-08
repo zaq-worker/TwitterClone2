@@ -1,0 +1,365 @@
+/*
+全体
+****/
+.container {
+    display: flex;
+    /*サイドとメインを横並びにする*/
+    justify-content: center;
+    /*サイドとメインを中央に揃える*/
+}
+
+.side {
+    width: 90px;
+    /*アイコンの横幅*/
+}
+
+.main {
+    width: calc(100% - 90px);
+    /*最大からサイドの90pxを引いた幅*/
+    border-left: 1px solid #eef;
+    /*.mainブロックの左側に線*/
+    border-right: 1px solid #eef;
+    /*.mainブロックの右側に線*/
+    text-align: left;
+    /*左寄せ*/
+    max-width: 600px;
+    /*横幅の最大を指定*/
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 0;
+        /*ページ外の余白をなくす*/
+    }
+
+    .side {
+        width: 60px;
+        /*サイドの横幅*/
+    }
+
+    .main {
+        width: calc(100% - 60px);
+        /*サイドを引いた横幅*/
+    }
+}
+
+.nav-link {
+    /*bootstrapに上書き*/
+    padding: .3rem;
+    /*アイコンの余白*/
+}
+
+.btn {
+    background-color: #1af;
+    /*背景*/
+    color: #fff;
+    /*文字色*/
+    font-size: 15px;
+    /*文字サイズ*/
+    font-weight: bold;
+    /*太文字*/
+}
+
+.btn:hover {
+    /*ボタンにマウスが重なった時*/
+    color: #fff;
+    /*文字色*/
+}
+
+a {
+    text-decoration: none;
+    /*文字の下線を消す*/
+}
+
+/*
+サイド
+****/
+.side .side-inner {
+    /*サイドの親要素*/
+    position: sticky;
+    /*スクロール時にアイコンを固定*/
+    height: 100vh;
+    /*アイコン一覧の高さを画面に合わせる*/
+    top: 0px;
+    /*position: sticky固定の位置を指定*/
+    padding-top: 20px;
+    /*アイコン一覧の上部の空間*/
+    text-align: center;
+    /*アイコンをサイドの中央に揃える*/
+}
+
+.side .side-inner img {
+    /*サイドの子要素(アイコン)*/
+    width: 35%;
+    /*.sideに対する割合*/
+    margin-bottom: 15px;
+    /*アイコンの下の空間*/
+}
+
+.side .side-inner img.icon {
+    width: 70%;
+    /*アイコンのサイズ*/
+}
+
+.side .side-inner img.post-tweet {
+    width: 80%;
+    /*アイコンのサイズ*/
+}
+
+.side .side-inner .my-icon {
+    position: absolute;
+    /*起点をアイコン一覧の左上に指定*/
+    z-index: 1;
+    /*要素が重なった時の優先順位を指定(数字が大きいほど手前に表示される)*/
+    bottom: 0;
+    /*一番下に指定*/
+}
+
+.side .side-inner .my-icon img {
+    width: 60%;
+    /*アイコンのサイズ*/
+    border-radius: 50%;
+    /*角を丸く(50%=完全な円)*/
+    border: 0.2px/*線の太さ*/ solid/*線の種類*/ #aaa/*線の色*/;
+}
+
+@media screen and (max-width: 500px) {
+    .side .side-inner img {
+        width:70%;
+        /*サイドのアイコンの横幅*/
+        margin-bottom: 15px;
+        /*アイコン下の余白*/
+    }
+
+    .side .side-inner img.icon {
+        width: 85%;
+        /*サイトロゴの横幅*/
+    }
+
+    .side .side-inner img.post-tweet {
+        width: 100%;
+        /*つぶやくロゴの横幅*/
+    }
+
+    .side .side-inner .my-icon img {
+        width: 90%;
+        /*自分のアイコンロゴの横幅*/
+    }
+}
+
+/*
+メイン
+****/
+.main .main-header {
+    padding: 20px;
+    /*要素周りの空間*/
+    border-bottom: 1px solid #eef;
+    /*要素の下に線*/
+}
+
+.main .main-header h1 {
+    font-size: 20px;
+    /*文字の大きさ*/
+    line-height: 20px;
+    /*行間*/
+    font-weight: bold;
+    /*文字の太さ*/
+    margin-bottom: 0;
+    /*文字の下の余白をなくす*/
+}
+
+/*
+ホーム
+****/
+/*つぶやき投稿エリア*/
+.home .tweet-post {
+    display: flex;
+    /*要素の並び順*/
+    padding: 10px;
+    /*余白*/
+}
+
+.home .tweet-post .my-icon {
+    /*アイコン画像のブロック*/
+    width: 80px;
+    /*画像の横幅*/
+    padding: 5px 15px 10px 10px;
+    /*余白 上 右 下 左*/
+}
+
+.home .tweet-post .my-icon img {
+    /*アイコン画像*/
+    width: 100%;
+    /*親要素の割合*/
+    border-radius: 50%;
+    /*角を丸く*/
+    border: 0.2px solid #aaa;
+    /*要素の周りに線*/
+}
+
+.home .tweet-post .input-area {
+    /*テキストボックスのブロック*/
+    width: calc(100% - 80px);
+    /*最大から画像アイコンを引いた幅*/
+    flex-grow: 1;
+    /*横幅の伸び率*/
+}
+
+.home .tweet-post .input-area textarea {
+    /*テキストボックス*/
+    border: 0;
+    /*線を消す*/
+    width: 100%;
+    /*親要素に合わせる*/
+    height: 100px;
+    /*高さを指定*/
+    resize: none;
+    /*大きさを変えられなくする*/
+}
+
+.home .tweet-post .input-area textarea:focus {
+    outline: none;
+    /*選択しても枠が表示されないようにします*/
+}
+
+.home .tweet-post .input-area .bottom-area {
+    /*つぶやくボタン*/
+    display: flex;
+    /*要素を横並びにする*/
+    flex-wrap: wrap;
+    /*要素が横並びできない場合に折り返します*/
+    justify-content: space-between;
+    /*flexアイテム同士が両端に移動します*/
+    border-top: 1px solid #eef;
+    /*要素の上に線*/
+    padding-top: 8px;
+    /*要素と線の間に余白*/
+}
+
+.home .ditch {
+    height: 15px;
+    /*高さ*/
+    background-color: #f7f8f8;
+    /*背景*/
+    border-top: 1px solid #eef;
+    /*要素上に線*/
+    border-bottom: 1px solid #eef;
+    /*要素下に線*/
+}
+
+/*つぶやき一覧エリア
+***/
+.home .tweet-list .tweet {
+    padding: 10px;
+    /*親要素の周りに余白*/
+    display: flex;
+    /*横並び*/
+    border-bottom: 1px solid #eef;
+    /*要素の下に線*/
+}
+
+.home .tweet-list .tweet .user {
+    width: 80px;
+    /*横幅*/
+    padding: 5px 15px 10px 10px;
+    /*余白*/
+}
+
+.home .tweet-list .tweet .user img {
+    width: 100%;
+    /*横幅*/
+    border-radius: 50%;
+    /*角を丸く*/
+    border: 0.2px solid #aaa;
+    /*アイコンの周りに線*/
+}
+
+.home .tweet-list .tweet .name {
+    padding-top: 5px;
+    /*上に余白*/
+}
+
+.home .tweet-list .tweet .name a {
+    color: #122;
+    /*文字色*/
+}
+
+.home .tweet-list .tweet .name a .nickname {
+    color: #122;
+    /*文字色*/
+    font-size: 17px;
+    /*文字サイズ*/
+    font-weight: bold;
+    /*太文字*/
+}
+
+.home .tweet-list .tweet .name a .user-name {
+    color: #444;
+    /*文字色*/
+    font-size: 14px;
+    /*文字サイズ*/
+}
+
+.home .tweet-list .tweet .content {
+    width: calc(100% - 60px);
+    /*最大から画像アイコンを引いた幅*/
+}
+
+.home .tweet-list .tweet .content p {
+    font-size: 16px;
+    /*文字サイズ*/
+    padding: 8px 0 0 0;
+    /*要素の周りの余白*/
+    margin-bottom: 8px;
+    /*下の余白*/
+}
+
+.home .tweet-list .tweet .content img.post-image {
+    width: 100%;
+    /*横幅*/
+    border-radius: 15px;
+    /*角を丸く*/
+    margin-bottom: 10px;
+    /*下に余白*/
+    margin-right: 5px;
+    /*右に余白*/
+    border: 1px solid #eef;
+    /*要素の周りに線*/
+}
+
+.home .tweet-list .tweet .content .icon-list {
+    display: flex;
+    /*要素を横並び*/
+}
+
+.home .tweet-list .tweet .content .icon-list .like img {
+    width: 25px;
+    /*横幅*/
+    margin-right: 10px;
+    /*右に余白*/
+    cursor: pointer;
+    /*マウスカーソルを変化*/
+}
+
+.home .tweet-list .tweet .content .icon-list .like-count {
+    width: 25px;
+    /*横幅*/
+    padding-top: 2px;
+    /*上に余白*/
+    color: #444;
+    /*文字色*/
+}
+
+@media screen and (max-width: 500px) {
+    .home .tweet-list .tweet .user {
+        width:60px;
+        /*つぶやく一覧のアイコンの横幅*/
+        padding: 5px 10px 10px 5px;
+        /*余白*/
+    }
+
+    .bottom-area .btn {
+        margin-top: 10px;
+        /*つぶやくボタンの上に余白*/
+    }
+}
