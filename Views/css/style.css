@@ -67,6 +67,10 @@
 }
 
 a {
+    font-size: 13px;
+    /*文字サイズ*/
+    color: #1af;
+    /*文字色*/
     text-decoration: none;
     /*文字の下線を消す*/
 }

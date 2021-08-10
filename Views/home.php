@@ -104,6 +104,12 @@ function convertToDayTimeAgo(string $datetime)
     <!-- Boot strap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="<?php echo HOME_URL; ?>Views/css/style.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous" defer></script>
+    <!-- いいね！JS -->
+    <script src="<?php echo HOME_URL; ?>Views/js/likes.js" defer></script>
 
     <title>ホーム画面 / Twitterクローン</title>
     <meta name="description" content="ホーム画面です">
@@ -173,21 +179,21 @@ function convertToDayTimeAgo(string $datetime)
 
                                 <?php if (isset($view_tweet['tweet_image_name'])) : ?>
                                     <img src="<?php echo buikdImagePath ($view_tweet['tweet_image_name'], 'tweet'); ?>" alt="" class="post-image">
-                                <?php endif; //つぶやきに画像があれば表示する?>
+                                <?php endif; //つぶやきに画像があれば表示する ?>
 
                                 <div class="icon-list">
-                                    <div class="like">
+                                    <div class="like js-like" data-like-id="<?php echo htmlspecialchars($view_tweet['like_id']); ?>">
                                         <?php
-                                        if  (isset($view_tweet['like_id'])){
-                                            //いいね！している場合は、青のハート
+                                        if (isset($view_tweet['like_id'])) {
+                                            // いいね！している場合、青のハートを表示
                                             echo '<img src="' . HOME_URL . 'Views/img/icon-heart-twitterblue.svg" alt="">';
-                                        }else {
-                                            //いいね！していない場合は、グレーのハート
+                                        } else {
+                                            // いいね！してない場合、グレーのハートを表示
                                             echo '<img src="' . HOME_URL . 'Views/img/icon-heart.svg" alt="">';
                                         }
                                         ?>
                                     </div>
-                                    <div class="like-count"><?php echo $view_tweet['like_count']; ?></div>
+                                    <div class="like-count js-like-count"><?php echo htmlspecialchars($view_tweet['like_count']); ?></div>
                                 </div>
                             </div>
                         </div>
@@ -196,6 +202,11 @@ function convertToDayTimeAgo(string $datetime)
             <?php endif; ?>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.js-popover').popover();
+        }, false);
+    </script>
 </body>
 
 </html>
