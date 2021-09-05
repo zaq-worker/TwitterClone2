@@ -66,6 +66,20 @@
     /*文字色*/
 }
 
+.btn-reverse {
+    background-color: #fff;
+    /*編集ボタン背景*/
+    color: #1af;
+    /*文字色*/
+    border: 1px solid #1af;
+    /*要素周りの線*/
+}
+
+.btn-reverse:hover {
+    color: #1af;
+    /*マウスが重なっても文字色変えない*/
+}
+
 a {
     font-size: 13px;
     /*文字サイズ*/
@@ -371,42 +385,144 @@ a {
 /*
 会員登録（ログイン画面共用）
 ****/
-html{
-    height:100%;
-}
-body.signup{
-    display: flex;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+html {
     height: 100%;
 }
-.signup{
-    background-color: #123;
-    color: #fff;
+
+body.signup {
+    display: flex;
+    /*要素を並べる*/
+    align-items: center;
+    /*中央揃え*/
+    padding-top: 40px;
+    /*要素上に空白*/
+    padding-bottom: 40px;
+    /*要素下に空白*/
+    height: 100%;
+    /*高さ*/
 }
-.signup .form-signup{
+
+.signup {
+    background-color: #123;
+    /*背景色*/
+    color: #fff;
+    /*文字色*/
+}
+
+.signup .form-signup {
     width: 100%;
+    /*横幅*/
     max-width: 330px;
+    /*最大の横幅*/
     padding: 15px;
+    /*要素周りの空白*/
     margin: auto;
+    /*空白自動調整*/
 }
-.signup .logo-white{
+
+.signup .logo-white {
     margin-bottom: 30px;
+    /*下の空白*/
     width: 50px;
+    /*横幅*/
 }
-.signup h1{
+
+.signup h1 {
     font-size: 20px;
+    /*文字サイズ*/
     margin-bottom: 20px;
+    /*下の空白*/
 }
-.signup input{
+
+.signup input {
     margin-bottom: 10px;
+    /*下の空白*/
     background-color: #123;
+    /*背景色*/
     border-color: #456;
+    /*要素周りの線の色*/
     color: #fff;
+    /*文字色*/
 }
-.signup input:focus{
+
+.signup input:focus {
+    /*マウスを置いたとき*/
     background-color: #123;
+    /*背景色*/
     border-color: #1af;
+    /*線の色*/
     color: #fff;
+    /*文字色*/
+}
+
+/*
+ユーザー
+****/
+.profile .profile-area {
+    padding: 25px;
+    /*要素周りの空白*/
+}
+
+.profile .profile-area .top {
+    display: flex;
+    /*要素を並べる*/
+    justify-content: space-between;
+    /*要素を左右に離す*/
+    align-items: flex-end;
+    /*要素を下に揃える*/
+}
+
+.profile .profile-area .top .user {
+    width: 30%;
+    /*横幅*/
+    padding: 5px 15px 10px 0;
+    /*要素周りの空白*/
+}
+
+.profile .profile-area .top .user img {
+    width: 100%;
+    /*横幅*/
+    border-radius: 50%;
+    /*角を丸める*/
+    border: 3px solid rgb(235, 238, 240);
+    /*線の太さ、色*/
+}
+
+.profile .profile-area .top button {
+    margin-bottom: 20px;
+    /*要素下の空白*/
+}
+
+.profile .profile-area .name {
+    font-size: 18px;
+    /*文字サイズ*/
+    font-weight: bold;
+    /*文字を太く*/
+}
+
+.profile .profile-area .follow-follower {
+    display: flex;
+    /*要素を並べる*/
+    padding: 15px 0 10px 0;
+    /*要素周りの空白*/
+}
+
+.profile .profile-area .follow-follower .follow-count {
+    width: 30px;
+    /*横幅*/
+    font-size: 16px;
+    /*文字サイズ*/
+    font-weight: bold;
+    /*文字を太く*/
+}
+
+.profile .profile-area .follow-follower .follow-text {
+    width: 100%;
+    /*横幅*/
+    font-size: 16px;
+    /*文字サイズ*/
+    margin-right: 30px;
+    /*右の空白*/
+    color: #778;
+    /*文字色*/
 }
