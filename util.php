@@ -16,7 +16,7 @@ function buildImagePath(string $name = null, string $type)
         return HOME_URL . 'Views/img/icon-default-user.svg';
     }
 
-    return HOME_URL . 'views/img_uploaded/' . $type . '/' . htmlspecialchars($name);
+    return HOME_URL . 'Views/img_uploaded/' . $type . '/' . htmlspecialchars($name);
 }
 
 /**
@@ -145,7 +145,7 @@ function uploadImage(array $user, array $file, string $type)
     move_uploaded_file($file['tmp_name'], $image_path);
 
     //画像ファイルの場合－＞ファイル名をreturn
-    if(exif_imagerype($image_path)) {
+    if(exif_imageType($image_path)) {
         return $image_name;
     }
 
